@@ -537,6 +537,7 @@ async function comicPage(isPC) {
             page: page,
             skip: skip,
             scroll: scroll,
+            scrollAnimnationTime: 100,
             show: 0,
             full: 0,
         },
@@ -714,9 +715,9 @@ async function comicPage(isPC) {
         // TODO
         $("html").stop();
         if (id == 0) {
-            $("html").animate({ scrollTop: 0 }, 500);
+            $("html").animate({ scrollTop: 0 }, this.scrollAnimnationTime);
         } else {
-            $("html").animate({ scrollTop: img_list[id - 1].offsetTop }, 500);
+            $("html").animate({ scrollTop: img_list[id - 1].offsetTop }, this.scrollAnimnationTime);
         }
     }
     function scrollDown() {
@@ -737,9 +738,9 @@ async function comicPage(isPC) {
         // TODO
         $("html").stop();
         if (id == img_list.length + 1) {
-            $("html").animate({ scrollTop: last_img.offsetTop + last_img.offsetHeight }, 500);
+            $("html").animate({ scrollTop: last_img.offsetTop + last_img.offsetHeight }, this.scrollAnimnationTime);
         } else {
-            $("html").animate({ scrollTop: img_list[id - 1].offsetTop }, 500);
+            $("html").animate({ scrollTop: img_list[id - 1].offsetTop }, this.scrollAnimnationTime);
         }
     }
     document.getElementById('matrix').onclick = function (event) {
